@@ -34,17 +34,29 @@
 
         .right-nav a{
             color: black;
+            text-decoration: none;
         }
 
-        .cart{
-            margin-right: 1rem;
+        .cart, .profile, .login{
+            margin-right: 1.5rem;
         }
 
         main{
-            padding: 0 10rem;
             background: #EAEAEA;
             min-height: 100vh;
         }
+
+        .login, .register{
+            border: 3px solid black;
+            border-radius: 15px;
+            padding: 0 0.5rem;
+        }
+
+        .login a, .register a{
+            text-transform: uppercase;
+        }
+
+
     </style>
 
     {{-- Style of individual pages --}}
@@ -76,6 +88,18 @@
                         <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
                     </svg>
                 </a>
+            </div>
+
+            <div class="login">
+                <strong>
+                    <a href="/login">Login</a>
+                </strong>
+            </div>
+
+            <div class="register">
+                <strong>
+                    <a href="/register">Register</a>
+                </strong>
             </div>
 
         </div>

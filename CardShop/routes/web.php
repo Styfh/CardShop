@@ -15,3 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [NavController::class, 'getHomePage']);
+
+Route::get('/login', [NavController::class, 'getLoginPage']);
+Route::get('/register', [NavController::class, 'getRegisterPage']);
