@@ -43,7 +43,7 @@
             <input type="file" class="form-control" name="profile_picture" id="profile_picture">
         </div>
         <input type="submit" class="form-control mb-4" value="Register">
-        <p class="text-center">Already have an account? login <a href="/login">here</a></p>
+        <p class="text-center">Already have an account? Login <a href="/login">here</a></p>
     </form>
 </div>
 @endsection
