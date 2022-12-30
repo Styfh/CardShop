@@ -16,6 +16,7 @@
 @section('content')
 <h3 class="text-center mb-5">Login</h3>
 <div class="card">
+    @include('components.error')
     <form action="">
         @csrf
         <div class="mb-3">

@@ -16,6 +16,7 @@
 @section('content')
 <h3 class="text-center mb-5">Register</h3>
 <div class="card">
+    @include('components.error')
     <form action="/register" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
