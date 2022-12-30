@@ -16,7 +16,7 @@
 @section('content')
 <h3 class="text-center mb-5">Register</h3>
 <div class="card">
-    <form action="">
+    <form action="/register" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label for="name" class="form-label">Name</label>

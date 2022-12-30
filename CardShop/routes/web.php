@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\NavController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,4 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [NavController::class, 'getHomePage']);
 
 Route::get('/login', [NavController::class, 'getLoginPage']);
+Route::post('/login', [AuthController::class, 'login']);
+
 Route::get('/register', [NavController::class, 'getRegisterPage']);
+Route::post('/register', [AuthController::class, 'register']);
