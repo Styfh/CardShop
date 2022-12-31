@@ -38,12 +38,18 @@
             <label for="category" class="form-label">Category</label>
             <select class="form-select" name="category" id="category">
                 <option selected>Select category</option>
+                @foreach ($categories as $category)
+                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
             </select>
         </div>
         <div class="mb-3">
             <label for="series" class="form-label">Series</label>
             <select class="form-select" name="series" id="series">
-                <option selected>Select category</option>
+                <option selected>Select series</option>
+                @foreach ($series_array as $series)
+                <option value="{{ $series->id }}">{{ $series->name }}</option>
+                @endforeach
             </select>
         </div>
         <div class="mb-4">
