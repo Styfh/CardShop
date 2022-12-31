@@ -14,10 +14,10 @@
 @endsection
 
 @section('content')
-<h3 class="text-center mb-5">Login</h3>
+@include('components.page-header')
 <div class="card">
     @include('components.error')
-    <form action="">
+    <form action="/login" method="POST">
         @csrf
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>

@@ -24,3 +24,5 @@ Route::get('/register', [NavController::class, 'getRegisterPage']);
 Route::post('/register', [AuthController::class, 'register']);
 
 Route::get('/profile/{user_id}', [NavController::class, 'getProfilePage']);
+
+Route::get('/listing/create', [NavController::class, 'getCreateListingPage']);

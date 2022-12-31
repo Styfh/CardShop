@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Series;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -31,6 +33,18 @@ class NavController extends Controller
 
         return view('profile', compact('user'));
 
+    }
+
+    public function getCreateListingPage(Request $request){
+
+        // Get categories from db
+        $categories = Category::all();
+
+        // Get series from db
+        $series_array = Series::all();
+
+        return view('create-listing', compact('categories',
+            'series_array'));
     }
 
 }
