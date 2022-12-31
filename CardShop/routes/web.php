@@ -22,3 +22,5 @@ Route::post('/login', [AuthController::class, 'login']);
 
 Route::get('/register', [NavController::class, 'getRegisterPage']);
 Route::post('/register', [AuthController::class, 'register']);
+
+Route::get('/profile/{user_id}', [NavController::class, 'getProfilePage']);

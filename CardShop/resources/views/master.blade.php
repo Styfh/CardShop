@@ -82,14 +82,17 @@
                 </a>
             </div>
 
+            @auth
             <div class="profile">
-                <a href="">
+                <a href="/profile/{{ Auth::user()->id }}">
                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
                         <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
                     </svg>
                 </a>
             </div>
+            @endauth
 
+            @guest
             <div class="login">
                 <strong>
                     <a href="/login">Login</a>
@@ -101,6 +104,7 @@
                     <a href="/register">Register</a>
                 </strong>
             </div>
+            @endguest
 
         </div>
     </nav>
