@@ -33,4 +33,8 @@ class NavController extends Controller
 
     }
 
+    public function getCreateListingPage(Request $request){
+        return view('create-listing');
+    }
+
 }
