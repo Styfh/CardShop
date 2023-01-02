@@ -17,4 +17,18 @@
     </svg>
     Create New
 </a>
+
+<div>
+    @foreach ($listings as $listing)
+        <div class="card flex-row">
+            <div>
+                <img src="{{ asset($listing->image) }}">
+            </div>
+            <div class="card-block">
+                <h4>{{ $listing->name }}</h4>
+            </div>
+        </div>
+    @endforeach
+</div>
+
 @endsection

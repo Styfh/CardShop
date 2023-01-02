@@ -90,8 +90,8 @@
                     </svg>
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <li><a class="dropdown-item" href="/profile/{{ Auth::user()->id }}">Your Profile</a></li>
-                    <li><a class="dropdown-item" href="/listing/{{ Auth::user()->id }}">Your Listings</a></li>
+                    <li><a class="dropdown-item" href="/profile/{{ Auth::id() }}">Your Profile</a></li>
+                    <li><a class="dropdown-item" href="/listing/{{ Auth::id() }}">Your Listings</a></li>
                     <li><a class="dropdown-item" href="#">Logout</a></li>
                 </ul>
             </div>
