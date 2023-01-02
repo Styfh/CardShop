@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Storage;
 
 class AuthController extends Controller
@@ -41,6 +42,36 @@ class AuthController extends Controller
         Auth::login($user);
 
         return redirect('/');
+    }
+
+    public function login(Request $request){
+
+        // Form validation
+        $validated = $request->validate([
+            "email" => "required|email",
+            "password" => "required"
+        ]);
+
+        // Initialize variable;
+        $cookieMinutes = 120;
+
+        // Get remember checkbox value
+        $remember = $request->remember;
+
+        // Login user
+        if(Auth::attempt($validated, $remember)){
+
+            // Also set cookie for those who want to be remembered
+            if($remember){
+                Cookie::queue("rememberCookie", $validated["email"], $cookieMinutes);
+            }
+
+            return redirect('/');
+
+        }
+
+        return redirect()->back();
+
     }
 
 }
