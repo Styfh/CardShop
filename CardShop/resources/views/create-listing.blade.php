@@ -17,7 +17,9 @@
 @section('content')
 @include('components.page-header')
 <div class="card">
-    <form action="">
+    @include('components.error')
+    <form action="/listing/create" method="POST" enctype="multipart/form-data">
+        @csrf
         <div class="mb-3">
             <label for="name" class="form-label">Listing name</label>
             <input type="text" class="form-control" name="name" id="name">

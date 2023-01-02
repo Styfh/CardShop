@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Listing;
 use App\Models\Series;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -35,7 +36,19 @@ class NavController extends Controller
 
     }
 
-    public function getCreateListingPage(Request $request){
+    public function getUserListingPage(Request $request){
+
+        // Get user id from url
+        $id = $request->route('user_id');
+
+        // Get listings of the specified user from db
+        $listings = Listing::where('lister_id', $id)
+            ->get();
+
+        return view('listings', compact('listings'));
+    }
+
+    public function getCreateListingPage(){
 
         // Get categories from db
         $categories = Category::all();
