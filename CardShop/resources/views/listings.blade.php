@@ -26,6 +26,7 @@
             </div>
             <div class="card-block">
                 <h4>{{ $listing->name }}</h4>
+                <p class="card-text"></p>
             </div>
         </div>
     @endforeach
