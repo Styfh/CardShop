@@ -29,4 +29,6 @@ Route::get('/profile/{user_id}', [NavController::class, 'getProfilePage']);
 Route::get('/listing/create', [NavController::class, 'getCreateListingPage']);
 Route::post('/listing/create', [ListingController::class, 'create']);
 
+Route::delete('/listing/delete/{listing_id}', [ListingController::class, 'delete']);
+
 Route::get('/listing/{user_id}', [NavController::class, 'getUserListingPage']);

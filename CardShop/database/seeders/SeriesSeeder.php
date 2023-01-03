@@ -26,6 +26,10 @@ class SeriesSeeder extends Seeder
             [
                 "name" => "Magic: The Gathering",
                 "description" => "The original card game containing many creatures, spells, and more"
+            ],
+            [
+                "name" => "Yu Gi Oh",
+                "description" => "From the popular anime featuring Yami Yugi"
             ]
         ]);
     }
