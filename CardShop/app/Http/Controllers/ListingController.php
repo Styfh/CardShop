@@ -29,7 +29,7 @@ class ListingController extends Controller
         $newFileName = $validated["name"].'.'.$ext;
 
         // Add new listing to database
-        Listing::create([
+        $list = Listing::create([
             "lister_id" => $lister_id,
             "name" => $validated["name"],
             "individual_price" => $validated["price"],
@@ -37,14 +37,32 @@ class ListingController extends Controller
             "description" => $validated["description"],
             "category_id" => $validated["category"],
             "series_id" => $validated["series"],
-            "image" => "storage/listing_pics/$lister_id/$newFileName"
+            "image" => "listing_pics/$lister_id/$newFileName"
         ]);
 
         // Move uploaded file to appropriate directory
-        Storage::putFileAs("public/listing_pics/$lister_id/",
-            $request->image, $newFileName);
+        Storage::putFileAs("public/listing_pics/$lister_id", $request->image, $newFileName);
 
         return redirect('/');
 
+    }
+
+    public function delete(Request $request){
+
+        // Fetch id from route
+        $id = $request->route('listing_id');
+
+        // Get listing to delete from database
+        $toDelete = Listing::where('id', $id)->first();
+
+        // Delete listing image from directory
+        Storage::delete("public/$toDelete->image");
+
+        // Delete listing from database
+        $toDelete->delete();
+
+        return redirect()->back()->withInput([
+            'success' => 'Listing successfully deleted'
+        ]);
     }
 }
