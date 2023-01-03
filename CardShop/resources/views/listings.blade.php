@@ -47,6 +47,7 @@
 
 @section('content')
 
+@include('components.error')
 @include('components.success')
 
 <div class="mb-3">
@@ -89,8 +90,11 @@
                 </div>
 
                 <div class="update-stock">
-                    <input type="number" class="form-control mx-2">
-                    <input type="submit" value="Save" class="btn btn-primary">
+                    <form action="/listing/update/{{ $listing->id }}" method="POST" class="d-flex">
+                        @csrf
+                        <input type="number" class="form-control mx-2" value="{{ $listing->stock }}" name="stock">
+                        <input type="submit" value="Save" class="btn btn-primary">
+                    </form>
                 </div>
 
             </div>

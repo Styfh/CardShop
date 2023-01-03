@@ -65,4 +65,27 @@ class ListingController extends Controller
 
         return redirect()->back();
     }
+
+    public function updateStock(Request $request){
+
+        // Form validation
+        $request->validate([
+            'stock' => 'required|min:1'
+        ]);
+
+        // Fetch id from route
+        $id = $request->route('listing_id');
+
+        // Get listing to update from database
+        $toUpdate = Listing::where('id', $id)->first();
+
+        // Update stock
+        $toUpdate->stock = $request->stock;
+        $toUpdate->save();
+
+        $request->session()->flash('success', 'Successfully updated stock');
+
+        return redirect()->back();
+    }
+
 }
