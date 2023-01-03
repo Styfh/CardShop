@@ -31,4 +31,6 @@ Route::post('/listing/create', [ListingController::class, 'create']);
 
 Route::delete('/listing/delete/{listing_id}', [ListingController::class, 'delete']);
 
+Route::post('/listing/update/{listing_id}', [ListingController::class, 'updateStock']);
+
 Route::get('/listing/{user_id}', [NavController::class, 'getUserListingPage']);
