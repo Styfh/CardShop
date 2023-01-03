@@ -61,8 +61,8 @@ class ListingController extends Controller
         // Delete listing from database
         $toDelete->delete();
 
-        return redirect()->back()->withInput([
-            'success' => 'Listing successfully deleted'
-        ]);
+        $request->session()->flash('success', 'Successfully deleted listing');
+
+        return redirect()->back();
     }
 }
