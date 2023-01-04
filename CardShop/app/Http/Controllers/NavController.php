@@ -13,7 +13,11 @@ class NavController extends Controller
     //
 
     public function getHomePage(){
-        return view('home');
+
+        // Fetch all series
+        $series_array = Series::all();
+
+        return view('home', compact('series_array'));
     }
 
     public function getRegisterPage(){
