@@ -30,6 +30,18 @@ class SeriesSeeder extends Seeder
             [
                 "name" => "Yu Gi Oh",
                 "description" => "From the popular anime featuring Yami Yugi"
+            ],
+            [
+                "name" => "Final Fantasy",
+                "description" => "The award winning game series from SquareEnix"
+            ],
+            [
+                "name" => "Dragon Ball",
+                "description" => "From the popular shonen anime by Akira Toriyama"
+            ],
+            [
+                "name" => "Cardfight Vanguard",
+                "description" => "The official TCG from the popular anime"
             ]
         ]);
     }
