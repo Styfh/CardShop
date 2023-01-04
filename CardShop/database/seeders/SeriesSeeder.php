@@ -17,19 +17,31 @@ class SeriesSeeder extends Seeder
         Series::insert([
             [
                 "name" => "Pokemon",
-                "description" => "Based on the famous pokemon game series"
+                "image" => "series_pics/pokemon.png",
             ],
             [
                 "name" => "Digimon",
-                "description" => "Digital monsters based on the digimon anime"
+                "image" => "series_pics/digimon.png"
             ],
             [
                 "name" => "Magic: The Gathering",
-                "description" => "The original card game containing many creatures, spells, and more"
+                "image" => "series_pics/mtg.png"
             ],
             [
                 "name" => "Yu Gi Oh",
-                "description" => "From the popular anime featuring Yami Yugi"
+                "image" => "series_pics/yugioh.png"
+            ],
+            [
+                "name" => "Final Fantasy",
+                "image" => "series_pics/ff.png"
+            ],
+            [
+                "name" => "Dragon Ball",
+                "image" => "series_pics/db.png"
+            ],
+            [
+                "name" => "Cardfight Vanguard",
+                "description" => "series_pics/vanguard.png"
             ]
         ]);
     }
