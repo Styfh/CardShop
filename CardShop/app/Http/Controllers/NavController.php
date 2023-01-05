@@ -67,4 +67,16 @@ class NavController extends Controller
             'series_array'));
     }
 
+    public function getSearchPage(){
+
+        // Get category choices from db
+        $categories = Category::all();
+
+        // Get series choices from db
+        $series_array = Series::all();
+
+        return view('search', compact('categories', 'series_array'));
+
+    }
+
 }
