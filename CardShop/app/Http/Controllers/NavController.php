@@ -67,4 +67,10 @@ class NavController extends Controller
             'series_array'));
     }
 
+    public function getSearchPage(){
+
+        return view('search');
+
+    }
+
 }

@@ -34,3 +34,5 @@ Route::delete('/listing/delete/{listing_id}', [ListingController::class, 'delete
 Route::post('/listing/update/{listing_id}', [ListingController::class, 'updateStock']);
 
 Route::get('/listing/{user_id}', [NavController::class, 'getUserListingPage']);
+
+Route::get('/search', [NavController::class, 'getSearchPage']);
