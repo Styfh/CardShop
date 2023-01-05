@@ -13,4 +13,8 @@ class Category extends Model
         'name'
     ];
 
+    public function listing(){
+        return $this->hasMany(Listing::class);
+    }
+
 }

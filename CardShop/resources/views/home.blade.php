@@ -22,7 +22,9 @@
 
 @section('content')
 
-<div class="row row-cols-4">
+<h3 class="text-center mb-3">Card Series</h3>
+
+<div class="row row-cols-4 mb-5">
     @foreach ($series_array as $series)
     <div class="col mx-auto">
         <div class="card series-card mx-auto mb-3">
@@ -31,6 +33,16 @@
             </a>
         </div>
     </div>
+    @endforeach
+</div>
+
+<h3 class="text-center mb-3">Apparel and Accessories</h3>
+
+<div class="row row-cols-5">
+    @foreach ($listings as $listing)
+        <div class="col mx-auto">
+            @include('components.listing-card')
+        </div>
     @endforeach
 </div>
 

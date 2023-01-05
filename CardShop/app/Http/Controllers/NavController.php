@@ -17,7 +17,10 @@ class NavController extends Controller
         // Fetch all series
         $series_array = Series::all();
 
-        return view('home', compact('series_array'));
+        // Fetch all listings that are categorized as apparel or accessory
+        $listings = Listing::with('category')->get();
+
+        return view('home', compact('series_array', 'listings'));
     }
 
     public function getRegisterPage(){
