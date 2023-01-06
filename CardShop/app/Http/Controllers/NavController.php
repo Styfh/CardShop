@@ -67,7 +67,11 @@ class NavController extends Controller
             'series_array'));
     }
 
-    public function getSearchPage(){
+    public function getSearchPage(Request $request){
+
+        $nameQuery = $request->query('name');
+        $categoryQuery = $request->query('category');
+        $seriesQuery = $request->query('series');
 
         // Get category choices from db
         $categories = Category::all();
@@ -75,7 +79,15 @@ class NavController extends Controller
         // Get series choices from db
         $series_array = Series::all();
 
-        return view('search', compact('categories', 'series_array'));
+        // dd(Listing::with('series')->first());
+
+        // Get search result according to query
+        $listings = Listing::where('listings.name', 'LIKE', "%$nameQuery%")
+            ->where('category_id', 'LIKE' ,$categoryQuery)
+            ->where('series_id', 'LIKE', $seriesQuery)
+            ->get();
+
+        return view('search', compact('categories', 'series_array', 'listings', 'nameQuery', 'categoryQuery', 'seriesQuery'));
 
     }
 
