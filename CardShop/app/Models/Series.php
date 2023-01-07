@@ -10,8 +10,13 @@ class Series extends Model
     use HasFactory;
 
     protected $fillable = [
+        'id',
         'name',
         'image'
     ];
+
+    public function listing(){
+        return $this->hasMany(Listing::class);
+    }
 
 }
