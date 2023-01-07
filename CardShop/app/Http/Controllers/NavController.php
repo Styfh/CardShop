@@ -8,6 +8,8 @@ use App\Models\Series;
 use App\Models\User;
 use Illuminate\Http\Request;
 
+use function PHPUnit\Framework\assertInfinite;
+
 class NavController extends Controller
 {
     //
@@ -72,6 +74,15 @@ class NavController extends Controller
         $nameQuery = $request->query('name');
         $categoryQuery = $request->query('category');
         $seriesQuery = $request->query('series');
+        $minPriceQuery = $request->query('minprice');
+        $maxPriceQuery = $request->query('maxprice');
+
+        if($minPriceQuery == null){
+            $minPriceQuery = 0;
+        }
+        if($maxPriceQuery == null){
+            $maxPriceQuery = PHP_INT_MAX;
+        }
 
         // Get category choices from db
         $categories = Category::all();
@@ -79,15 +90,15 @@ class NavController extends Controller
         // Get series choices from db
         $series_array = Series::all();
 
-        // dd(Listing::with('series')->first());
-
         // Get search result according to query
         $listings = Listing::where('listings.name', 'LIKE', "%$nameQuery%")
             ->where('category_id', 'LIKE' ,$categoryQuery)
             ->where('series_id', 'LIKE', $seriesQuery)
+            ->where('listings.individual_price', '>=', $minPriceQuery)
+            ->where('listings.individual_price', '<', $maxPriceQuery)
             ->get();
 
-        return view('search', compact('categories', 'series_array', 'listings', 'nameQuery', 'categoryQuery', 'seriesQuery'));
+        return view('search', compact('categories', 'series_array', 'listings', 'nameQuery', 'categoryQuery', 'seriesQuery', 'minPriceQuery', 'maxPriceQuery'));
 
     }
 
