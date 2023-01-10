@@ -21,6 +21,8 @@
 
 @section('content')
 
+@include('components.success')
+
 <h3 class="text-center mb-3">{{ $listing->name }}</h3>
 
 <div class="card d-flex flex-row">
@@ -37,7 +39,7 @@
         <p class="card-text">{{ $listing->description }}</p>
         <p class="card-text">{{ $listing->category->name }}</p>
 
-        <form action="/cart/add" method="POST">
+        <form action="/cart/add/{{ $listing->id }}" method="POST">
             @csrf
             <div class="d-flex flex-row">
                 <input type="number" name="amount" class="form-control">
