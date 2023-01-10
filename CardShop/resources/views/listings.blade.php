@@ -61,7 +61,7 @@
 
 <div>
     @foreach ($listings as $listing)
-        <div class="card flex-row">
+        <div class="card flex-row mb-3">
             <div class="px-2">
                 <img src="{{ asset('storage/'.$listing->image) }}" class="listing-img">
             </div>

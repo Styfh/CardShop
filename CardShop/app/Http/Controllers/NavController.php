@@ -6,9 +6,8 @@ use App\Models\Category;
 use App\Models\Listing;
 use App\Models\Series;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
-
-use function PHPUnit\Framework\assertInfinite;
 
 class NavController extends Controller
 {
@@ -20,7 +19,10 @@ class NavController extends Controller
         $series_array = Series::all();
 
         // Fetch all listings that are categorized as apparel or accessory
-        $listings = Listing::with('category')->get();
+        $listings = Listing::whereHas('category', function($query){
+                $query->where('name', 'Apparel')
+                    ->orWhere('name', 'Accessory');
+        })->get();
 
         return view('home', compact('series_array', 'listings'));
     }
@@ -71,12 +73,14 @@ class NavController extends Controller
 
     public function getSearchPage(Request $request){
 
+        // Get all queries from route
         $nameQuery = $request->query('name');
         $categoryQuery = $request->query('category');
         $seriesQuery = $request->query('series');
         $minPriceQuery = $request->query('minprice');
         $maxPriceQuery = $request->query('maxprice');
 
+        // Initialize price queries if not queried
         if($minPriceQuery == null){
             $minPriceQuery = 0;
         }
@@ -99,6 +103,18 @@ class NavController extends Controller
             ->get();
 
         return view('search', compact('categories', 'series_array', 'listings', 'nameQuery', 'categoryQuery', 'seriesQuery', 'minPriceQuery', 'maxPriceQuery'));
+
+    }
+
+    public function getListingPage(Request $request){
+
+        // Get id from route
+        $id = $request->route('listing_id');
+
+        // Fetch listing from db
+        $listing = Listing::where('id', $id)->first();
+
+        return view('listing', compact('listing'));
 
     }
 

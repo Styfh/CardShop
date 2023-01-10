@@ -33,6 +33,8 @@ Route::delete('/listing/delete/{listing_id}', [ListingController::class, 'delete
 
 Route::post('/listing/update/{listing_id}', [ListingController::class, 'updateStock']);
 
-Route::get('/listing/{user_id}', [NavController::class, 'getUserListingPage']);
+Route::get('/listings/{user_id}', [NavController::class, 'getUserListingPage']);
+
+Route::get('/listing/{listing_id}', [NavController::class, 'getListingPage']);
 
 Route::get('/search', [NavController::class, 'getSearchPage']);

@@ -1,4 +1,4 @@
-<a href="" style="text-decoration: none; color: black;">
+<a href="/listing/{{$listing->id}}" style="text-decoration: none; color: black;">
     <div class="card" style="width: 12rem;">
         <img src="{{ asset("storage/$listing->image") }}" class="card-img-top" style="height: 12rem; width: 100%;">
         <div class="card-body">
