@@ -5,11 +5,15 @@
 @section('style')
 <style>
     main{
-        padding: 5rem 5%;
+        padding: 5rem 15%;
     }
 
     .listing-detail{
         padding: 2rem;
+    }
+
+    main img{
+        height: 20rem;
     }
 
 </style>
@@ -26,10 +30,10 @@
     </div>
 
     <div class="listing-detail">
-        <strong>
-            <p class="card-text">IDR {{ $listing->individual_price }}</p>
-        </strong>
         <p class="card-text">{{ $listing->series->name }}</p>
+        <strong>
+            <p>IDR {{ $listing->individual_price }}</p>
+        </strong>
         <p class="card-text">{{ $listing->description }}</p>
         <p class="card-text">{{ $listing->category->name }}</p>
 
