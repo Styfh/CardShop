@@ -48,7 +48,7 @@ class TransactionController extends Controller
         }
 
         // Update cart/add new
-        $cartItem->save();
+        $newCartItem->save();
 
         $request->session()->flash('success', 'Product successfully added to cart');
 
