@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Listing;
 use App\Models\Series;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class NavController extends Controller
 {
@@ -116,6 +118,17 @@ class NavController extends Controller
 
         return view('listing', compact('listing'));
 
+    }
+
+    public function getCartPage(){
+
+        // Get authed user id
+        $id = Auth::id();
+
+        // Get all items in cart belonging to user
+        $cart = Cart::where('user_id', $id)->get();
+
+        return view('cart', compact('cart'));
     }
 
 }

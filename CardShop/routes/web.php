@@ -38,3 +38,5 @@ Route::get('/listings/{user_id}', [NavController::class, 'getUserListingPage']);
 Route::get('/listing/{listing_id}', [NavController::class, 'getListingPage']);
 
 Route::get('/search', [NavController::class, 'getSearchPage']);
+
+Route::get('/cart', [NavController::class, 'getCartPage']);
