@@ -35,6 +35,6 @@ Route::post('/listing/update/{listing_id}', [ListingController::class, 'updateSt
 
 Route::get('/listings/{user_id}', [NavController::class, 'getUserListingPage']);
 
-Route::get('/listing/{listing_id}', [ListingController::class, 'getListingPage']);
+Route::get('/listing/{listing_id}', [NavController::class, 'getListingPage']);
 
 Route::get('/search', [NavController::class, 'getSearchPage']);

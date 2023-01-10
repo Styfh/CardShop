@@ -22,7 +22,7 @@ class NavController extends Controller
         $listings = Listing::whereHas('category', function($query){
                 $query->where('name', 'Apparel')
                     ->orWhere('name', 'Accessory');
-            })->get();
+        })->get();
 
         return view('home', compact('series_array', 'listings'));
     }
