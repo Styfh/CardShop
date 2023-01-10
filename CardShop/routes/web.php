@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ListingController;
 use App\Http\Controllers\NavController;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,3 +41,4 @@ Route::get('/listing/{listing_id}', [NavController::class, 'getListingPage']);
 Route::get('/search', [NavController::class, 'getSearchPage']);
 
 Route::get('/cart', [NavController::class, 'getCartPage']);
+Route::post('/cart/add/{listing_id}', [TransactionController::class, 'cartAdd']);
