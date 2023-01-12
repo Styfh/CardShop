@@ -73,10 +73,11 @@ class TransactionController extends Controller
         $user_id = Auth::id();
 
         // Get all items in user's cart
-        $cart = Cart::where('user_id', $user_id)->get();
+        $cart = Cart::where('user_id', $user_id);
+        $cartCollection = $cart->get();
 
         // Validate if cart has content
-        if($cart->isEmpty()){
+        if($cartCollection->isEmpty()){
             return redirect()->back()
                 ->withErrors('emptyCart', 'cart is empty, cannot purchase');
         }
@@ -87,13 +88,14 @@ class TransactionController extends Controller
         $newHeader->save();
 
         // Purchase all items in the cart as detail
-        foreach($cart as $item){
+        foreach($cartCollection as $item){
 
             $listing = $item->listing;
 
             // Push cart item as detail
             $newDetail = new PurchaseDetail();
             $newDetail->listing_id = $listing->id;
+            $newDetail->header_id = $newHeader->id;
             $newDetail->quantity = $item->quantity;
             $newDetail->save();
 
@@ -101,6 +103,9 @@ class TransactionController extends Controller
             $listing->stock -= $item->quantity;
             $listing->save();
         }
+
+        // Clear cart
+        $cart->delete();
 
         $request->session()->flash('success', 'Item(s) purchased successfully');
 
