@@ -21,8 +21,6 @@
 
 @section('content')
 
-@include('components.success')
-
 <h3 class="text-center mb-3">{{ $listing->name }}</h3>
 
 <div class="card d-flex flex-row">

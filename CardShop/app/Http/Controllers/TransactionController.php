@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\PurchaseDetail;
+use App\Models\PurchaseHeader;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redis;
 
 class TransactionController extends Controller
 {
@@ -55,4 +58,46 @@ class TransactionController extends Controller
         return redirect()->back();
 
     }
+
+    public function purchase(Request $request){
+
+        // Get authed user id
+        $user_id = Auth::id();
+
+        // Get all items in user's cart
+        $cart = Cart::where('user_id', $user_id)->get();
+
+        // Validate if cart has content
+        if($cart->isEmpty()){
+            return redirect()->back()
+                ->withErrors('emptyCart', 'cart is empty, cannot purchase');
+        }
+
+        // Push new header
+        $newHeader = new PurchaseHeader();
+        $newHeader->buyer_id = $user_id;
+        $newHeader->save();
+
+        // Purchase all items in the cart as detail
+        foreach($cart as $item){
+
+            $listing = $item->listing;
+
+            // Push cart item as detail
+            $newDetail = new PurchaseDetail();
+            $newDetail->listing_id = $listing->id;
+            $newDetail->quantity = $item->quantity;
+            $newDetail->save();
+
+            // Update listing stock
+            $listing->stock -= $item->quantity;
+            $listing->save();
+        }
+
+        $request->session()->flash('success', 'Item(s) purchased successfully');
+
+        return redirect('/');
+
+    }
+
 }
