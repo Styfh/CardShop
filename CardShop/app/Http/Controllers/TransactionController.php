@@ -50,6 +50,14 @@ class TransactionController extends Controller
             $newCartItem->quantity = $quantity;
         }
 
+        // Validate that the listing have enough stock
+        $listing = $newCartItem->listing;
+        if($listing->stock < $newCartItem->quantity){
+            return redirect()->back()->withErrors([
+                'listingStock' => "Listing doesn't have enough in stock"
+            ]);
+        }
+
         // Update cart/add new
         $newCartItem->save();
 
