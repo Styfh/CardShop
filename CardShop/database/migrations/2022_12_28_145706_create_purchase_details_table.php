@@ -16,12 +16,17 @@ class CreatePurchaseDetailsTable extends Migration
         Schema::create('purchase_details', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('listing_id');
+            $table->foreignId('header_id');
             $table->integer('quantity');
             $table->timestamps();
 
             $table->foreign('listing_id')
                 ->references('id')
                 ->on('listings');
+
+            $table->foreign('header_id')
+                ->references('id')
+                ->on('purchase_headers');
         });
     }
 
