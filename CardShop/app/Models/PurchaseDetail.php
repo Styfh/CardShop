@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class PurchaseDetail extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'listing_id',
+        'quantity'
+    ];
+
+    public function listing(){
+        return $this->belongsTo(Listing::class);
+    }
+
 }

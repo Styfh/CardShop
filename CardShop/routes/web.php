@@ -42,3 +42,5 @@ Route::get('/search', [NavController::class, 'getSearchPage']);
 
 Route::get('/cart', [NavController::class, 'getCartPage']);
 Route::post('/cart/add/{listing_id}', [TransactionController::class, 'cartAdd']);
+
+Route::post('/purchase', [TransactionController::class, 'purchase']);

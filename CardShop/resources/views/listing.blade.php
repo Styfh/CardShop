@@ -21,8 +21,6 @@
 
 @section('content')
 
-@include('components.success')
-
 <h3 class="text-center mb-3">{{ $listing->name }}</h3>
 
 <div class="card d-flex flex-row">
@@ -32,12 +30,13 @@
     </div>
 
     <div class="listing-detail">
-        <p class="card-text">{{ $listing->series->name }}</p>
+        <p class="card-text">Series: {{ $listing->series->name }}</p>
+        <p class="card-text">Lister: {{ $listing->lister->name }}</p>
+        <p class="card-text">Stock: {{ $listing->stock }}</p>
         <strong>
-            <p>IDR {{ $listing->individual_price }}</p>
+            <p>Price: IDR {{ $listing->individual_price }}</p>
         </strong>
-        <p class="card-text">{{ $listing->description }}</p>
-        <p class="card-text">{{ $listing->category->name }}</p>
+        <p class="card-text">Description:<br>{{ $listing->description }}</p>
 
         <form action="/cart/add/{{ $listing->id }}" method="POST">
             @csrf
