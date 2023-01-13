@@ -16,7 +16,6 @@
 @section('content')
 @include('components.page-header')
 <div class="card">
-    @include('components.error')
     <form action="/login" method="POST">
         @csrf
         <div class="mb-3">
