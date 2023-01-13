@@ -76,9 +76,9 @@
                     </div>
 
                     <div class="update-stock">
-                        <form action="/listing/update" method="POST" class="d-flex">
+                        <form action="/cart/stock/{{ $item->id }}" method="POST" class="d-flex">
                             @csrf
-                            <input type="number" class="form-control mx-2" value="{{ $item->quantity }}" name="stock">
+                            <input type="number" class="form-control mx-2" value="{{ $item->quantity }}" name="quantity">
                             <input type="submit" value="Save" class="btn btn-primary">
                         </form>
                     </div>

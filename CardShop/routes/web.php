@@ -42,6 +42,7 @@ Route::get('/listing/{listing_id}', [NavController::class, 'getListingPage']);
 Route::get('/search', [NavController::class, 'getSearchPage']);
 
 Route::get('/cart', [NavController::class, 'getCartPage']);
-Route::post('/cart/add/{listing_id}', [CartController::class, 'cartAdd']);
+Route::post('/cart/add/{listing_id}', [CartController::class, 'add']);
+Route::post('/cart/stock/{cart_id}', [CartController::class, 'updateQty']);
 
 Route::post('/purchase', [TransactionController::class, 'purchase']);

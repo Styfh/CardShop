@@ -10,7 +10,7 @@ class CartController extends Controller
 {
     //
 
-    public function cartAdd(Request $request){
+    public function add(Request $request){
 
         // Form validation
         $request->validate([
@@ -62,6 +62,36 @@ class CartController extends Controller
 
         return redirect()->back();
 
+    }
+
+    public function updateQty(Request $request){
+
+        // Form validation
+        $request->validate([
+            "quantity" => 'required|min:1'
+        ]);
+
+        // Fetch cart id from route
+        $cart_id = $request->route('cart_id');
+
+        // Fetch cart item from db
+        $item = Cart::where('id', $cart_id)->first();
+
+        // Validate that the listing have enough stock
+        $listing = $item->listing;
+        if($listing->stock < $request->quantity){
+            return redirect()->back()->withErrors([
+                'listingStock' => "Listing doesn't have enough in stock"
+            ]);
+        }
+
+        // Update quantity in cart
+        $item->quantity = $request->quantity;
+        $item->save();
+
+        $request->session()->flash('success', 'Item quantity updated successfully');
+
+        return redirect()->back();
     }
 
 
