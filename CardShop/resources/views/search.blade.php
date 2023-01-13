@@ -46,10 +46,10 @@
             <input type="submit" value="Filter" class="btn btn-primary h-50 mx-2">
         </form>
     </div>
-    <div>
-        <div class="row row-cols-5">
+    <div class="mx-3">
+        <div class="row">
             @foreach ($listings as $listing)
-                <div class="col mx-auto">
+                <div class="col col-lg-3 col-md-4 col-sm-6 mx-auto mb-2">
                     @include('components.listing-card')
                 </div>
             @endforeach
