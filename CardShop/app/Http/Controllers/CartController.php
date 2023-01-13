@@ -94,5 +94,20 @@ class CartController extends Controller
         return redirect()->back();
     }
 
+    public function delete(Request $request){
+
+        // Get cart id from route
+        $cart_id = $request->route('cart_id');
+
+        // delete cart item from db
+        Cart::where('id', $cart_id)->delete();
+
+        $request->session()->flash('success', 'Deleted item from cart successfully');
+
+        return redirect()->back();
+
+
+    }
+
 
 }

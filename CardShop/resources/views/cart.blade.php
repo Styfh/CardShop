@@ -63,7 +63,7 @@
 
                 <div class="list-btns px-2">
                     <div class="trash">
-                        <form action="/listing/delete/" method="POST">
+                        <form action="/cart/delete/{{ $item->id }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-outline-danger trash-btn" style="padding: 0.25rem 0.5rem;">
