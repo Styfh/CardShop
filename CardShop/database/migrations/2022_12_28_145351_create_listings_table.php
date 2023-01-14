@@ -24,6 +24,7 @@ class CreateListingsTable extends Migration
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('series_id');
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('category_id')
                 ->references('id')

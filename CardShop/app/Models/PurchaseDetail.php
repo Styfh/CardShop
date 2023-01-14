@@ -18,4 +18,8 @@ class PurchaseDetail extends Model
         return $this->belongsTo(Listing::class);
     }
 
+    public function header(){
+        return $this->belongsTo(PurchaseHeader::class, 'header_id', 'id');
+    }
+
 }

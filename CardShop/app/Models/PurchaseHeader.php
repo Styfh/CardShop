@@ -17,4 +17,8 @@ class PurchaseHeader extends Model
         return $this->belongsTo(User::class, 'buyer_id', 'id');
     }
 
+    public function details(){
+        return $this->hasMany(PurchaseDetail::class, 'header_id', 'id');
+    }
+
 }

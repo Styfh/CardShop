@@ -39,4 +39,41 @@
         </div>
     </div>
 </div>
+
+<div class="px-5">
+    @foreach ($purchases as $purchase)
+    @php
+        $total = 0;
+    @endphp
+    <div class="card my-3 border-info">
+        <h5 class="card-title mx-3">Purchase at {{ $purchase->created_at }}</h5>
+        <ul class="list-group list-group-flush">
+            @foreach ($purchase->details as $item)
+            <li class="list-group-item">
+                <div class="d-flex flex-row justify-content-between">
+                    <div>
+                        {{ "$item->quantity".'x '.$item->listing->name}}
+                    </div>
+                    <div>
+                        {{ $item->listing->individual_price * $item->quantity }}
+                    </div>
+                </div>
+            </li>
+
+            @php
+                $total += $item->listing->individual_price * $item->quantity;
+            @endphp
+
+            @endforeach
+        </ul>
+        <div class="px-3 my-auto">
+            <div class="d-flex flex-row justify-content-between my-auto">
+                <div class="align-self-center">
+                    <h4>IDR {{ $total }}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
+</div>
 @endsection

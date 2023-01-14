@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Listing;
+use App\Models\PurchaseHeader;
 use App\Models\Series;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
@@ -42,10 +43,13 @@ class NavController extends Controller
         // Get user id from url
         $id = $request->route('user_id');
 
+        // Fetch user purchases
+        $purchases = PurchaseHeader::where('buyer_id', $id)->get();
+
         // Get user from db
         $user = User::where('id', $id)->first();
 
-        return view('profile', compact('user'));
+        return view('profile', compact('user', 'purchases'));
 
     }
 
