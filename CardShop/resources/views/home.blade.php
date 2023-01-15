@@ -27,11 +27,14 @@
 <div class="row row-cols-4 mb-5">
     @foreach ($series_array as $series)
     <div class="col mx-auto">
+        <form action="/search" method="GET">
         <div class="card series-card mx-auto mb-3">
-            <a href="" class="btn">
-                <img src="{{asset("storage/$series->image")}}" class="series-img">
-            </a>
-        </div>
+                <input type="hidden" name="series" value="{{ $series->id }}">
+                <button type="submit" class="btn">
+                    <img src="{{asset("storage/$series->image")}}" class="series-img">
+                </button>
+            </div>
+        </form>
     </div>
     @endforeach
 </div>
