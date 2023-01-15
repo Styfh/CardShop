@@ -7,6 +7,9 @@
     main{
         padding: 5rem 5%;
     }
+    .links nav{
+        background: none;
+    }
 </style>
 @endsection
 
@@ -44,6 +47,11 @@
                 </div>
             </div>
             <input type="submit" value="Filter" class="btn btn-primary h-10">
+
+            <div class="d-flex justify-content-center my-auto links py-5">
+                {{{ $listings->links() }}}
+            </div>
+
         </form>
     </div>
     <div class="mx-3">

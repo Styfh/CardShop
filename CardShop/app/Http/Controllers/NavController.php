@@ -106,7 +106,9 @@ class NavController extends Controller
             ->where('series_id', 'LIKE', $seriesQuery)
             ->where('listings.individual_price', '>=', $minPriceQuery)
             ->where('listings.individual_price', '<', $maxPriceQuery)
-            ->get();
+            ->paginate(10);
+
+
 
         return view('search', compact('categories', 'series_array', 'listings', 'nameQuery', 'categoryQuery', 'seriesQuery', 'minPriceQuery', 'maxPriceQuery'));
 
