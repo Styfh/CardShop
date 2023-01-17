@@ -26,7 +26,7 @@
 <div class="card d-flex flex-row">
 
     <div>
-        <img src="{{ asset("storage/listing_pics/$listing->lister_id/$listing->image") }}">
+        <img src="{{ asset("storage/$listing->image") }}">
     </div>
 
     <div class="listing-detail">
