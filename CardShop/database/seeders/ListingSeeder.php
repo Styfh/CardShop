@@ -22,7 +22,7 @@ class ListingSeeder extends Seeder
                 'individual_price' => 7000000,
                 'stock' => 1,
                 'description' => 'Base Set Charizard Holo Rare',
-                'image' => 'BaseSetCharizard.jpg',
+                'image' => 'listing_pics/1/BaseSetCharizard.jpg',
                 'category_id' => 1,
                 'series_id' => 1
             ],
@@ -33,7 +33,7 @@ class ListingSeeder extends Seeder
                 'individual_price' => 20000,
                 'stock' => 48,
                 'description' => 'Base Set Bulbasaur Common',
-                'image' => 'BaseSetBulbasaur.jpg',
+                'image' => 'listing_pics/1/BaseSetBulbasaur.jpg',
                 'category_id' => 1,
                 'series_id' => 1
             ],
@@ -44,7 +44,7 @@ class ListingSeeder extends Seeder
                 'individual_price' => 32000,
                 'stock' => 12,
                 'description' => 'Base Set Pikachu Common',
-                'image' => 'BaseSetPikachu.jpg',
+                'image' => 'listing_pics/1/BaseSetPikachu.jpg',
                 'category_id' => 1,
                 'series_id' => 1
             ],
@@ -55,7 +55,7 @@ class ListingSeeder extends Seeder
                 'individual_price' => 100000,
                 'stock' => 4,
                 'description' => 'Silver Tempest Lugia V Ultra Rare',
-                'image' => 'SilverTempestLugiaV.jpg',
+                'image' => 'listing_pics/1/SilverTempestLugiaV.jpg',
                 'category_id' => 1,
                 'series_id' => 1
             ],
@@ -66,7 +66,7 @@ class ListingSeeder extends Seeder
                 'individual_price' => 30000,
                 'stock' => 6,
                 'description' => 'Sword And Shield Promo Eevee VMax Promo',
-                'image' => 'SwordAndShieldPromoEeveeVMax.jpg',
+                'image' => 'listing_pics/1/SwordAndShieldPromoEeveeVMax.jpg',
                 'category_id' => 1,
                 'series_id' => 1
             ],
@@ -77,7 +77,7 @@ class ListingSeeder extends Seeder
                 'individual_price' => 48500,
                 'stock' => 1,
                 'description' => 'Astral Radiance Radiant Greninja Radiant Rare',
-                'image' => 'AstralRadianceRadiantGreninja.jpg',
+                'image' => 'listing_pics/1/AstralRadianceRadiantGreninja.jpg',
                 'category_id' => 1,
                 'series_id' => 1
             ],

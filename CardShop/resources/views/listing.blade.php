@@ -26,7 +26,7 @@
 <div class="card d-flex flex-row">
 
     <div>
-        <img src="{{ asset("storage/$listing->image") }}">
+        <img src="{{ asset("storage/listing_pics/$listing->lister_id/$listing->image") }}">
     </div>
 
     <div class="listing-detail">
@@ -38,6 +38,8 @@
         </strong>
         <p class="card-text">Description:<br>{{ $listing->description }}</p>
 
+        @auth
+        @if (Auth::id() != $listing->lister_id)
         <form action="/cart/add/{{ $listing->id }}" method="POST">
             @csrf
             <div class="d-flex flex-row">
@@ -45,6 +47,8 @@
                 <input type="submit" value="Add to Cart" class="form-control btn btn-primary w-50 mx-3">
             </div>
         </form>
+        @endif
+        @endauth
     </div>
 
 </div>
