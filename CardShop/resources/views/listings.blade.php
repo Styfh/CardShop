@@ -60,7 +60,7 @@
     @foreach ($listings as $listing)
         <div class="card flex-row mb-3">
             <div class="px-2">
-                <img src="{{ asset('storage/'.$listing->image) }}" class="listing-img">
+                <img src="{{ asset("storage/listing_pics/$listing->lister_id/$listing->image") }}" class="listing-img">
             </div>
             <div class="card-block d-flex justify-content-between">
                 <div>

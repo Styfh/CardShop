@@ -70,6 +70,7 @@
         </div>
 
         <div class="right-nav">
+            @auth
             <div class="mx-2">
                 <a href="/cart">
                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
@@ -77,6 +78,7 @@
                     </svg>
                 </a>
             </div>
+            @endauth
 
             <div class="mx-2">
                 <a href="/search">
@@ -96,7 +98,7 @@
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <li><a class="dropdown-item" href="/profile/{{ Auth::id() }}">Your Profile</a></li>
                     <li><a class="dropdown-item" href="/listings/{{ Auth::id() }}">Your Listings</a></li>
-                    <li><a class="dropdown-item" href="#">Logout</a></li>
+                    <li><a class="dropdown-item" href="/logout">Logout</a></li>
                 </ul>
             </div>
             @endauth
